@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  apache:
+    build:
+      context: "."
+      args:
+        - DISCOUNT_VERSION=2.2.2
+        - MARKDOWN_VERSION=1.0.3
+    container_name: apache_markdown
+    ports:
+      - "8888:80"
+    volumes:
+      - ./htdocs:/usr/local/apache2/htdocs
+      - ./etc/httpd.conf:/usr/local/apache2/conf/httpd.conf
